@@ -20,11 +20,11 @@ no_index:
 provides:
   Term::ReadLine::EditLine:
     file: lib/Term/ReadLine/EditLine.pm
-    version: v1.0.0
+    version: v1.1.0
 requires:
   Term::EditLine: 0.05
   Term::ReadLine: 1.10
   perl: 5.008005
 resources:
   license: http://dev.perl.org/licenses/
-version: v1.0.0
+version: v1.1.0

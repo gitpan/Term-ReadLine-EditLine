@@ -2,7 +2,7 @@ package Term::ReadLine::EditLine;
 use strict;
 use warnings;
 use 5.008005;
-our $VERSION = '1.0.0';
+our $VERSION = '1.1.0';
 
 use Term::EditLine;
 use Carp ();
@@ -14,8 +14,10 @@ sub new {
     unless (@_ > 0) {
         Carp::croak("Usage: Term::ReadLine::EditLine->new(\$program[, IN, OUT])");
     }
+    my $editline = Term::EditLine->new(@_);
+    $editline->set_editor('emacs'); # set emacs as default mode.
     my $self = bless {
-        editline => Term::EditLine->new(@_),
+        editline => $editline,
         IN       => $_[1] || *STDIN,
         OUT      => $_[2] || *STDOUT,
     }, $class;
@@ -33,7 +35,7 @@ sub readline {
 
 sub addhistory {
     my ($self, $history) = @_;
-    $self->history_enter($history);
+    $self->editline->history_enter($history);
 }
 
 sub IN  { $_[0]->{IN} }
