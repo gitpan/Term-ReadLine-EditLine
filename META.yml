@@ -1,0 +1,30 @@
+---
+abstract: 'Term::ReadLine style wrapper for Term::EditLine'
+author:
+  - 'Tokuhiro Matsuno E<lt>tokuhirom AAJKLFJEF@ GMAIL COME<gt>'
+build_requires:
+  Test::More: 0.98
+  Test::Requires: 0
+configure_requires:
+  Module::Build: 0.38
+dynamic_config: 0
+generated_by: 'Module::Build version 0.4003, CPAN::Meta::Converter version 2.120921'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Term-ReadLine-EditLine
+no_index:
+  directory:
+    - inc
+provides:
+  Term::ReadLine::EditLine:
+    file: lib/Term/ReadLine/EditLine.pm
+    version: v1.0.0
+requires:
+  Term::EditLine: 0.05
+  Term::ReadLine: 1.10
+  perl: 5.008005
+resources:
+  license: http://dev.perl.org/licenses/
+version: v1.0.0
