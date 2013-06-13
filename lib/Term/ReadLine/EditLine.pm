@@ -2,10 +2,13 @@ package Term::ReadLine::EditLine;
 use strict;
 use warnings;
 use 5.008005;
-our $VERSION = '1.1.0';
+our $VERSION = '1.1.1';
 
 use Term::EditLine;
+use Term::ReadLine;
 use Carp ();
+
+our @ISA = qw(Term::ReadLine::Stub);
 
 sub ReadLine { __PACKAGE__ }
 
@@ -90,6 +93,8 @@ __END__
 
 =encoding utf8
 
+=for stopwords libedit readline
+
 =head1 NAME
 
 Term::ReadLine::EditLine - Term::ReadLine style wrapper for Term::EditLine
@@ -142,6 +147,12 @@ You can use following methods in Term::ReadLine interface.
 =back
 
 Additionally, you can use C<< $t->editline() >> method to access L<Term::EditLine> instance.
+
+=head1 ENVIRONMENT
+
+The Term::ReadLine interface module uses the PERL_RL variable to decide which module to load; so if you want to use this module for all your perl applications, try something like:
+
+    export PERL_RL=EditLine
 
 =head1 AUTHOR
 
